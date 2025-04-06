@@ -1,0 +1,19 @@
+.separator |
+
+-- Load AuctionUser data and handle 'NULL' strings
+.import users.dat AuctionUser
+UPDATE AuctionUser SET Location = NULL WHERE Location = 'NULL';
+UPDATE AuctionUser SET Country = NULL WHERE Country = 'NULL';
+
+-- Load Item data and handle NULLs
+.import items.dat Item
+UPDATE Item SET Buy_Price = NULL WHERE Buy_Price = '';
+UPDATE Item SET Description = NULL WHERE Description = 'NULL';
+UPDATE Item SET Location = NULL WHERE Location = 'NULL';
+UPDATE Item SET Country = NULL WHERE Country = 'NULL';
+
+-- Load Category data
+.import categories.dat Category
+
+-- Load Bid data
+.import bids.dat Bid
